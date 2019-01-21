@@ -1,0 +1,140 @@
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Abel|Grand+Hotel" rel="stylesheet">
+
+  <title>
+    Dailes: Your Habit Tracker for Habit Building
+  </title>
+</head>
+
+<style type="text/css">
+
+  html, body {
+    background-color: #CEE9CD;
+    font-family: 'Abel', sans-serif;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .container {
+    display: table;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+  }
+  .left {
+    left: 0px;
+    width: 50%;
+    position: absolute;
+    overflow: hidden;
+  }
+
+  .left img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: auto;
+
+  }
+  .right {
+    right: 0px;
+    width: 50%;
+    margin-top: 1%;
+    position: absolute;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .right img {
+    max-width: 50%;
+    bottom: 0px;
+    position:fixed;
+    left: 50%;
+  }
+
+  .content {
+    line-height: 2;
+  }
+  h1 {
+    font-family: 'Grand Hotel', cursive;
+    color: #00444E;
+    font-size: 80px
+  }
+  h2 {
+    color: #00444E;
+    font-size: 15px
+  }
+  .field-email, .field-password {
+    text-transform: uppercase;
+    font-size: 25px;
+    color: #00444E;
+  }
+
+  .field-password {
+    margin-bottom: 60px;
+  }
+  .button {
+    background-color: #00444E;
+    color: white;
+    border-radius: 50px;
+    padding: 12px 75px;
+    font-size: 30px;
+  }
+
+  .email {
+    padding-right: 73px;
+  }
+
+  .password {
+    padding-right: 20px;
+  }
+
+  .emailbox, .passwordbox {
+    font-size: 25px;
+    border-style: none;
+    background-color: white;
+  }
+
+
+
+</style>
+
+<section class = "container">
+  <div class = "left">
+    <img src= "https://drive.google.com/uc?export=view&id=1FcvLL9IxsuFJX4rhMbIBfOyFemxvsSuX" alt = "sorry the image isn't working">
+  </div>
+  <div class = "right">
+    <h1>dailies</h1>
+    <h2>Don't have an account yet? <%= link_to "Sign up", new_registration_path(resource_name) %></h2>
+    <div class = "content">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field-email">
+          <%= f.label :email, :class => 'email' %>
+          <%= f.email_field :email, autofocus: true, size: 20, autocomplete: "email", :class => 'emailbox'%>
+        </div>
+
+        <div class="field-password">
+          <%= f.label :password, :class => 'password' %>
+          <%= f.password_field :password, size: 20, autocomplete: "current-password", :class => 'passwordbox' %>
+        </div>
+
+        <!-- <h2>Forgot you password? No worries. It happens to the best of us. <%= link_to "Reset password", new_password_path(resource_name) %></h2> -->
+
+<!--         <% if devise_mapping.rememberable? -%>
+          <div class="field-remember">
+            <%= f.label :remember_me %>
+            <%= f.check_box :remember_me %>
+          </div>
+        <% end -%> -->
+
+        <div class="actions">
+          <%= f.submit "LOG IN", :class => 'button' %>
+        </div>
+        <img src= "https://drive.google.com/uc?export=view&id=1WcDTi7r12-zU6FxkBaqhi7hR1J2ySZrw" alt = "sorry the image isn't working">
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<%-#=  render "devise/shared/links" -%>
